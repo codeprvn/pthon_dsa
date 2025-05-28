@@ -184,7 +184,7 @@ def tenth (n):
 # 11. eleventh pattern
 '''
 1
-10
+01
 101
 0101
 10101
@@ -301,7 +301,134 @@ def sixteenth (n):
   ABCDCBA
 '''
 
-# def seventeenth (n):
-#     for i in range(1, n+1):
+def seventeenth (n):
+    for i in range(1, n):
+        for j in range(n-i):
+            print(" ", end="")
+        for k in range(1,i+1):
+            print(chr(64+k), end="")
+        for l in range(i-1, 0, -1):
+            print(chr(64+l), end="")
+        print()
 
+# seventeenth(4)
+
+# 18. eighteenth patterns
+'''
+D
+CD
+BCD
+ABCD
+'''
+
+def eighteenth (n):
+    for i in range( n):
+        for j in range(i+1):
+            print(chr((64 + n -i) +j), end="")
+        print()
+
+# eighteenth(4)
+
+# 19. ninteenth patterns
+'''
+********
+***  ***
+**    **
+*      *
+**    **
+***  ***
+********
+'''
+
+def nineteenth (n):
+    for i in range(n, 0, -1):
+        for j in range(i):
+            print("*", end="")
+        for k in range(2 * (n-i)):
+            print(" ", end="")
+        for h in range(i):
+            print("*", end="")
+        print()
+    for h in range(1 ,n+1):
+        for j in range(h):
+            print("*", end="")
+        for k in range(2 * (n-h)):
+            print(" ", end="")
+        for l in range(h):
+            print("*", end="")
+        print()
+
+# nineteenth(4)
+
+# 20 twenteenth patterns
+'''
+*    *
+**  **
+******
+**  **
+*    *
+'''
+
+def twenteeth (n):
+    for i in range(1, n+1):
+        for k in range(i):
+            print("*", end="")
+        for j in range(2*(n-i)):
+            print(" ", end="")
+        for l in range(i):
+            print("*", end="")
+        print()
     
+    for a in range(n-1, 0 , -1):
+        for k in range(a):
+            print("*", end="")
+        for j in range(2*(n-a)):
+            print(" ", end="")
+        for l in range(a):
+            print("*", end="")
+        print()
+
+# twenteeth(4)
+
+# 21. twentyfirst patterns
+'''
+******
+*    *
+*    *
+*    *
+*    *
+******
+'''
+
+def twentyfirst (n):
+    for i in range(n):
+        for j in range(n):
+            if(i==0 or i==n-1 or j==0 or j==n-1):
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print()
+
+# twentyfirst(4)
+
+# 22. twentyTwo patterns
+'''
+3 3 3 3 3 
+3 2 2 2 3 
+3 2 1 2 3 
+3 2 2 2 3 
+3 3 3 3 3
+'''
+
+def twentytwo (n):
+    for i in range(2*n -1):
+        for j in range(2*n -1):
+            top = i
+            left = j
+            bottem = (2*n-1)-1 -i
+            right = (2*n-1)-1 -j
+            printNo = n - min(top, left, bottem, right)
+            print(printNo, end="")
+        print()
+
+twentytwo(3)
