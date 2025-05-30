@@ -246,4 +246,49 @@ for (let i = 0; i < n; i++) {
      return xor
 }
 
-console.log(noAppearsOnce([2,2,1]))
+// console.log(noAppearsOnce([2,2,1]))
+
+// 12. Longest subarray with given sum K(positives)
+
+function longestSubArray(arr, k){
+    // with help of prefix sum
+
+    // let sum = 0
+    // let len = 0
+    // let map = new Map
+    // for(i=0; i<arr.length; i++){
+    //     sum += arr[i]
+    //     if(sum === k ){
+    //         len = Math.max(len, i+1)
+    //     }
+    //     let rem = sum -k
+    //     console.log(map , rem)
+    //     if(map.has(rem)){
+    //         console.log(i, map.get(rem))
+    //         len = Math.max(len, (i - map.get(rem)))
+    //     }
+    //         map.set(sum, i)
+    // }
+
+    // return len
+
+    //  two pointer approach
+    let left = 0, sum = 0, maxLen = 0;
+    
+    for (let right = 0; right < arr.length; right++) {
+        sum += arr[right];
+        
+        while (sum > k) {
+            sum -= arr[left];
+            left++;
+        }
+        
+        if (sum === k) {
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+    }
+    
+    return maxLen;
+}
+
+console.log(longestSubArray([2,3,5,1,9], 10));
